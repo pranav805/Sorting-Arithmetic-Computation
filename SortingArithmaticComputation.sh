@@ -19,8 +19,10 @@ for ((i=1; i<=4; i++))
 do
 	array[$i]=${ResultsDictionary[Expression_"$i"]}
 done
-secho ${array[@]}
+echo ${array[@]}
 n=${#array[@]}
+
+#Descending Order
 for ((i=0; i<$n-1; i++))
 do
 	for ((j=$i+1; j<=$n; j++))
