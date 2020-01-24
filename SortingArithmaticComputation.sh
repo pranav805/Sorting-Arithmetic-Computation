@@ -15,3 +15,8 @@ ResultsDictionary[Expression_2]=$result2
 ResultsDictionary[Expression_3]=$result3
 ResultsDictionary[Expression_4]=$result4
 
+for ((i=1; i<=4; i++))
+do
+	array[$i]=${ResultsDictionary[Expression_"$i"]}
+done
+echo ${array[@]}
