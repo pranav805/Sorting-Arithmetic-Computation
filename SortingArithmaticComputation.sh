@@ -23,7 +23,7 @@ echo ${array[@]}
 n=${#array[@]}
 
 #Descending Order
-for ((i=0; i<$n-1; i++))
+for ((i=0; i<$n; i++))
 do
 	for ((j=$i+1; j<=$n; j++))
 	do
@@ -35,5 +35,20 @@ do
 		fi
 	done
 done
-echo ${array[@]}
+echo Descending Order: ${array[@]}
+
+#Ascending Order
+for ((i=0; i<$n; i++))
+do
+   for ((j=$i+1; j<=$n; j++))
+   do
+      if [[ ${array[$i]%.*} -gt ${array[$j]%.*} ]]
+      then
+         temp=${array[$i]}
+         array[$i]=${array[$j]}
+         array[$j]=$temp
+      fi
+   done
+done
+echo Ascending Order: ${array[@]}
 
