@@ -19,4 +19,19 @@ for ((i=1; i<=4; i++))
 do
 	array[$i]=${ResultsDictionary[Expression_"$i"]}
 done
+secho ${array[@]}
+n=${#array[@]}
+for ((i=0; i<$n-1; i++))
+do
+	for ((j=$i+1; j<=$n; j++))
+	do
+		if [[ ${array[$i]%.*} -lt ${array[$j]%.*} ]]
+		then
+			temp=${array[$i]}
+			array[$i]=${array[$j]}
+			array[$j]=$temp
+		fi
+	done
+done
 echo ${array[@]}
+
